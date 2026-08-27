@@ -22,6 +22,11 @@ import java.util.List;
 public class ProductController {
     private final ProductService service;
 
+    @GetMapping("/health")
+    public ResponseEntity<String> health() {
+        return ResponseEntity.ok("UP");
+    }
+
     @PostMapping
     @Operation(summary = "Add Product", description = "Creates a new product")
     public ResponseEntity<ApiResponse<ProductResponse>> addProduct(@Valid @RequestBody ProductRequest request) {
